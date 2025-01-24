@@ -42,5 +42,5 @@ export * from './ui-tools/viewport/viewport-bar';
 export * from './key-listener/jump-out';
 export * from './key-listener/quick-actions';
 export * from './start-action/actions';
-
+export * from './performance/performance-module';
 export * from './ivy-glsp-jsonrpc-client';

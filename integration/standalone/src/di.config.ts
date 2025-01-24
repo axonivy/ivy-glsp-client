@@ -1,4 +1,4 @@
-import { createIvyDiagramContainer, ivyThemeModule } from '@axonivy/process-editor';
+import { createIvyDiagramContainer, createPerformanceModule, ivyThemeModule } from '@axonivy/process-editor';
 import { ivyInscriptionModule } from '@axonivy/process-editor-inscription';
 import type { IDiagramOptions } from '@eclipse-glsp/client';
 import { createDiagramOptionsModule, standaloneExportModule, standaloneSelectModule, undoRedoModule } from '@eclipse-glsp/client';
@@ -15,12 +15,14 @@ export interface IvyDiagramOptions extends IDiagramOptions {
   select: string | null;
   theme: ThemeMode;
   inscriptionContext: InscriptionContext & { server: string };
+  measurePerformance?: boolean;
 }
 
 export default function createContainer(options: IvyDiagramOptions): Container {
   const container = createIvyDiagramContainer(
     'sprotty',
     createDiagramOptionsModule(options),
+    createPerformanceModule(options.measurePerformance),
     // standalone modules
     standaloneSelectModule,
     standaloneExportModule,

@@ -25,7 +25,6 @@ import ivyDiagramModule from './diagram/di.config';
 import { LaneNode } from './diagram/model';
 import { ivyLabelEditModule, ivyLabelEditUiModule } from './edit-label/di.config';
 import ivyExecutionModule from './execution/di.config';
-import { IvyGLSPCommandStack } from './ivy-command-stack';
 import ivyJumpModule from './jump/di.config';
 import ivyKeyListenerModule from './key-listener/di.config';
 import ivyLaneModule from './lanes/di.config';
@@ -93,7 +92,7 @@ export default function createContainer(widgetId: string, ...containerConfigurat
 
   bindOrRebind(container, MarqueeUtil).to(IvyMarqueeUtil).inSingletonScope();
   bindOrRebind(container, TYPES.IMarqueeBehavior).toConstantValue({ entireEdge: true, entireElement: true });
-  bindOrRebind(container, TYPES.ICommandStack).to(IvyGLSPCommandStack).inSingletonScope();
+  // bindOrRebind(container, TYPES.ICommandStack).to(IvyGLSPCommandStack).inSingletonScope();
   bindOrRebind(container, TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
   bindOrRebind(container, TYPES.LogLevel).toConstantValue(LogLevel.warn);
   bindOrRebind(container, TYPES.ISnapper).to(GLSPCenterGridSnapper);

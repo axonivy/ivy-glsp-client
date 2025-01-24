@@ -23,6 +23,7 @@ const sourceUri = parameters.get('file') ?? '';
 const select = parameters.get('select');
 const theme = (parameters.get('theme') as ThemeMode) ?? SwitchThemeActionHandler.prefsColorScheme();
 const debug = parameters.has('debug', 'true');
+const measurePerformance = parameters.has('performance', 'true');
 
 const id = 'ivy-glsp-process-editor';
 const diagramType = 'ivy-glsp-process';
@@ -51,7 +52,8 @@ async function initialize(connectionProvider: MessageConnection, isReconnecting 
       app,
       pmv,
       server: webSocketBase
-    }
+    },
+    measurePerformance
   });
 
   const diagramLoader = container.get(DiagramLoader);
