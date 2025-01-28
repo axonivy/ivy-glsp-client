@@ -39,4 +39,5 @@
 
 .ui-table-cell .script-input .maximize-code-button {
   margin-right: 30px;
+  background-color: var(--N25);
 }
