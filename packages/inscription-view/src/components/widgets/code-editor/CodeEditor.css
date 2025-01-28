@@ -19,6 +19,9 @@
   position: absolute;
   display: none;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 68%;
+  overflow: hidden;
   top: 12px;
   left: 11px;
   font-size: 12px;
